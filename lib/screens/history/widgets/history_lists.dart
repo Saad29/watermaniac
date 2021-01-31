@@ -42,7 +42,7 @@ class _HistoryListsState extends State<HistoryLists> {
                           child: Padding(
                             padding: EdgeInsets.all(16.0),
                             child: Text(
-                              'You have not drunk anything yet! To add a drink go to the Today page and use the menu with drinks.',
+                              'You have not used any water yet! Please use water sensibly.',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   color: const Color(0xFF363535),

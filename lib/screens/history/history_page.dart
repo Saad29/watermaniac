@@ -99,7 +99,7 @@ class _HistoryPageState extends State<HistoryPage>
         "SUMMARY",
         summary,
         const Color(0xFF6fa1ea),
-        unit: 'ml',
+        unit: 'L',
       )),
     ];
 
@@ -107,12 +107,12 @@ class _HistoryPageState extends State<HistoryPage>
       statWidgets.add(
         Expanded(
             child: HistoryStatsText(
-                "AVERAGE\nDRINK",
+                "AVERAGE\nUSAGE",
                 currentEntries.length > 0
                     ? summary / currentEntries.length
                     : 0.0,
                 const Color(0xFFc7d0df),
-                unit: 'ml')),
+                unit: 'L')),
       );
     } else {
       var avg = 0.0;
@@ -132,15 +132,15 @@ class _HistoryPageState extends State<HistoryPage>
         Expanded(
             child: HistoryStatsText(
                 "AVERAGE\nA DAY", avg, const Color(0xFFc7d0df),
-                unit: 'ml')),
+                unit: 'L')),
       );
     }
 
-    statWidgets.add(
-      Expanded(
-          child: HistoryStatsText("TOTAL\nCUPS",
-              currentEntries.length.toDouble(), const Color(0xFFf5bad3))),
-    );
+    // statWidgets.add(
+    //   Expanded(
+    //       child: HistoryStatsText("TOTAL\nCUPS",
+    //           currentEntries.length.toDouble(), const Color(0xFFf5bad3))),
+    // );
 
     return statWidgets;
   }
@@ -335,7 +335,7 @@ class DrinkHitoryListItem extends StatelessWidget {
           ),
           Expanded(
               child: Text(
-            '$amount ml',
+            '$amount L',
             textAlign: TextAlign.right,
             style: TextStyle(
                 color: const Color(0xFF6fa1ea),

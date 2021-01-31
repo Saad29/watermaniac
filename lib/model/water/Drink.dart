@@ -7,17 +7,17 @@ abstract class Drink {
   // TODO: big, medium, small
   // factory Drink.water() => Water(250);
   // factory Drink.coffee() => Water(200);
-  factory Drink.small() => Water(200);
-  factory Drink.medium() => Water(250);
-  factory Drink.big() => Water(300);
+  factory Drink.small() => Water(20);
+  factory Drink.medium() => Water(25);
+  factory Drink.big() => Water(30);
 
   factory Drink.fromAmount(int amount) {
     switch (amount) {
-      case 200:
+      case 20:
         return Drink.small();
-      case 250:
+      case 25:
         return Drink.medium();
-      case 300:
+      case 30:
         return Drink.medium();
       default:
         return Drink.big();

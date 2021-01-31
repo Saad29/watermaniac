@@ -29,7 +29,7 @@ class _AgeSeletorViewSatte extends State<AgeSelectorView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Age'.toUpperCase(),
+                'Number of People'.toUpperCase(),
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17.0),
               ),
               Padding(
@@ -51,8 +51,8 @@ class _AgeSeletorViewSatte extends State<AgeSelectorView> {
               },
               value: _value.toDouble(),
               min: 0.0,
-              max: 100.0,
-              divisions: 100,
+              max: 500.0,
+              divisions: 500,
               onChangeEnd: (double value) {
                 widget.changed(value.round());
               },

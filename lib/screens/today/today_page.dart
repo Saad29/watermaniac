@@ -24,7 +24,7 @@ class TodayPage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 16.0),
               child: ShadowText(
-                'TODAY',
+                'WATER USAGE OVERVIEW TODAY',
                 shadowColor: Colors.black.withOpacity(0.15),
                 offsetX: 3.0,
                 offsetY: 3.0,
@@ -83,7 +83,7 @@ class _TodayHistory extends StatelessWidget {
     return StoreConnector<AppState, AppState>(
       converter: (store) => store.state,
       builder: (context, state) {
-        var historyText = '\nYou have not drunk anything today yet!\n';
+        var historyText = '\nYou have not used any water today yet!\n';
         var todayEntries = state.drinksHistory
             .where((entry) =>
                 Utils.isToday(DateTime.fromMillisecondsSinceEpoch(entry.date)))
@@ -96,7 +96,7 @@ class _TodayHistory extends StatelessWidget {
           for (var entry in todayEntries) {
             historyText = DateFormat('HH:mm')
                     .format(DateTime.fromMillisecondsSinceEpoch(entry.date)) +
-                ' - ${entry.amount} ml' +
+                ' - ${entry.amount} L' +
                 historyText;
             i++;
 

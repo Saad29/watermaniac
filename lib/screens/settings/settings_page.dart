@@ -7,6 +7,7 @@ import 'package:watermaniac/screens/settings/Gender.dart';
 import 'package:watermaniac/screens/settings/widgets/age_selector_view.dart';
 import 'package:watermaniac/screens/settings/widgets/daily_goal_view.dart';
 import 'package:watermaniac/screens/settings/widgets/gender_selector_view.dart';
+import 'package:watermaniac/screens/settings/widgets/iot_screen.dart';
 import 'package:watermaniac/widgets/container_wrapper/container_wrapper.dart';
 import 'package:watermaniac/widgets/shadow/shadow_text.dart';
 
@@ -109,6 +110,13 @@ class _SettingsPageState extends State<SettingsPage> {
                                 },
                                 dailyGoal: state.settings.dailyGoal,
                               )),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 16.0),
+                              child: ContainerWrapper(
+                                  child: IoTScreen(
+
+                                  )),
                             ),
                           ],
                         );

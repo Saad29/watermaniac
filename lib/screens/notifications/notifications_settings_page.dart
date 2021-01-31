@@ -36,6 +36,11 @@ String _formatMinutes(int minutes) {
 }
 
 class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
+  List<String> notificationList = [
+    '1. Leakage detected in the washing machine at 8:18h',
+    '2. Leakage detected in the dish washer at 10:00h'
+  ];
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -45,17 +50,13 @@ class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
         Positioned(
             bottom: 0.0,
             height: 160.0,
-            child: SizedBox(
-              width: size.width,
-              height: 160.0,
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      stops: [0.3, 0.7],
-                      colors: [Colors.white.withOpacity(0.0), Colors.white]),
-                ),
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0.3, 0.7],
+                    colors: [Colors.white.withOpacity(0.0), Colors.white]),
               ),
             )),
         StoreConnector<AppState, AppState>(
@@ -80,143 +81,154 @@ class _NotificationsSettingsPageState extends State<NotificationsSettingsPage> {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            left: 16.0, right: 16.0, bottom: 16.0),
-                        child: ContainerWrapper(
-                          widthScale: 1.0,
-                          child: StoreConnector<AppState, OnSaveCallback>(
-                            converter: (store) {
-                              return ({enabled, from, to, interval}) {
-                                var settings = store.state.settings.copyWith(
-                                    notificationsEnabled: enabled,
-                                    notificationsFromTime: from,
-                                    notificationsToTime: to,
-                                    notificationsInterval: interval);
-                                store.dispatch(
-                                    SaveNotificationSettingsAction(settings));
-                              };
-                            },
-                            builder: (context, callback) {
-                              return Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: 8.0, horizontal: 16.0),
-                                    child: Row(
-                                      children: <Widget>[
-                                        Expanded(
-                                          child: Text('Notifications'),
-                                        ),
-                                        Switch(
-                                          value: state
-                                              .settings.notificationsEnabled,
-                                          onChanged: (value) {
-                                            callback(enabled: value);
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Padding(
-                                      padding: EdgeInsets.all(16.0),
-                                      child: GestureDetector(
-                                        onTap: () async {
-                                          var picked = await showTimePicker(
-                                              context: context,
-                                              initialTime: state.settings
-                                                  .notificationsFromTime);
-                                          if (picked != null &&
-                                              picked !=
-                                                  state.settings
-                                                      .notificationsFromTime) {
-                                            callback(from: picked);
-                                          }
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 16.0, right: 16.0, bottom: 16.0),
+                      child: ContainerWrapper(
+                        widthScale: 1.0,
+                        child: StoreConnector<AppState, OnSaveCallback>(
+                          converter: (store) {
+                            return ({enabled, from, to, interval}) {
+                              var settings = store.state.settings.copyWith(
+                                  notificationsEnabled: enabled,
+                                  notificationsFromTime: from,
+                                  notificationsToTime: to,
+                                  notificationsInterval: interval);
+                              store.dispatch(
+                                  SaveNotificationSettingsAction(settings));
+                            };
+                          },
+                          builder: (context, callback) {
+                            return Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 8.0, horizontal: 16.0),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: Text('Notifications'),
+                                      ),
+                                      Switch(
+                                        value: state
+                                            .settings.notificationsEnabled,
+                                        onChanged: (value) {
+                                          callback(enabled: value);
                                         },
-                                        child: Row(
-                                          children: <Widget>[
-                                            Expanded(
-                                              child: Text('From'),
-                                            ),
-                                            Text(
-                                              state.settings
-                                                  .notificationsFromTime
-                                                  .format(context),
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                          ],
-                                        ),
-                                      )),
-                                  Padding(
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
                                     padding: EdgeInsets.all(16.0),
                                     child: GestureDetector(
                                       onTap: () async {
                                         var picked = await showTimePicker(
                                             context: context,
-                                            initialTime: state
-                                                .settings.notificationsToTime);
+                                            initialTime: state.settings
+                                                .notificationsFromTime);
                                         if (picked != null &&
                                             picked !=
                                                 state.settings
-                                                    .notificationsToTime) {
-                                          callback(to: picked);
+                                                    .notificationsFromTime) {
+                                          callback(from: picked);
                                         }
                                       },
                                       child: Row(
                                         children: <Widget>[
                                           Expanded(
-                                            child: Text('To'),
+                                            child: Text('From'),
                                           ),
                                           Text(
-                                            state.settings.notificationsToTime
+                                            state.settings
+                                                .notificationsFromTime
                                                 .format(context),
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ],
                                       ),
+                                    )),
+                                Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      var picked = await showTimePicker(
+                                          context: context,
+                                          initialTime: state
+                                              .settings.notificationsToTime);
+                                      if (picked != null &&
+                                          picked !=
+                                              state.settings
+                                                  .notificationsToTime) {
+                                        callback(to: picked);
+                                      }
+                                    },
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Text('To'),
+                                        ),
+                                        Text(
+                                          state.settings.notificationsToTime
+                                              .format(context),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  Padding(
-                                    padding: EdgeInsets.all(16.0),
-                                    child: GestureDetector(
-                                      onTap: () async {
-                                        var picked = await showMinutesPicker(
-                                            context: context,
-                                            initialMinutes: state.settings
-                                                .notificationsInterval);
-                                        if (picked != null &&
-                                            picked !=
-                                                state.settings
-                                                    .notificationsInterval) {
-                                          callback(interval: picked);
-                                        }
-                                      },
-                                      child: Row(
-                                        children: <Widget>[
-                                          Expanded(
-                                            child: Text('Interval'),
-                                          ),
-                                          Text(
-                                            _formatMinutes(state.settings
-                                                .notificationsInterval),
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ],
-                                      ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.all(16.0),
+                                  child: GestureDetector(
+                                    onTap: () async {
+                                      var picked = await showMinutesPicker(
+                                          context: context,
+                                          initialMinutes: state.settings
+                                              .notificationsInterval);
+                                      if (picked != null &&
+                                          picked !=
+                                              state.settings
+                                                  .notificationsInterval) {
+                                        callback(interval: picked);
+                                      }
+                                    },
+                                    child: Row(
+                                      children: <Widget>[
+                                        Expanded(
+                                          child: Text('Interval'),
+                                        ),
+                                        Text(
+                                          _formatMinutes(state.settings
+                                              .notificationsInterval),
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ],
-                              );
-                            },
-                          ),
+                                ),
+
+                              ],
+                            );
+                          },
                         ),
                       ),
                     ),
+                    Container(
+                      child:   ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            title: Text('${notificationList[index]}'),
+                          );
+                        },
+                        itemCount: notificationList.length,
+                      ),
+                    )
                   ],
                 ));
           },

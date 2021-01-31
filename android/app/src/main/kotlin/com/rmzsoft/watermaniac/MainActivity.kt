@@ -10,10 +10,10 @@ class MainActivity: FlutterActivity() {
         GeneratedPluginRegistrant.registerWith(flutterEngine);
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        intent.putExtra("enable-software-rendering", true)
-        super.onCreate(savedInstanceState)
-
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        intent.putExtra("enable-software-rendering", true)
+//        super.onCreate(savedInstanceState)
+//
+//    }
 
 }

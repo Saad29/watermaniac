@@ -51,30 +51,31 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-       release {
-           keyAlias keystoreProperties['keyAlias']
-           keyPassword keystoreProperties['keyPassword']
-           storeFile file(keystoreProperties['storeFile'])
-           storePassword keystoreProperties['storePassword']
-       }
-    }
-   
-    buildTypes {
-       release {
-           signingConfig signingConfigs.release
-        //    signingConfig signingConfigs.debug
-       }
-    }
-}
+//    signingConfigs {
+//       release {
+//           keyAlias keystoreProperties['keyAlias']
+//           keyPassword keystoreProperties['keyPassword']
+//           storeFile file("key.jks")
+//           storePassword keystoreProperties['storePassword']
+//       }
+//    }
+//
+//    buildTypes {
+//       release {
+//           signingConfig signingConfigs.release
+//            signingConfig signingConfigs.debug
+//       }
+//    }
+//}
 
-flutter {
-    source '../..'
-}
+    flutter {
+        source '../..'
+    }
 
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    dependencies {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+        testImplementation 'junit:junit:4.12'
+        androidTestImplementation 'androidx.test:runner:1.1.1'
+        androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    }
 }

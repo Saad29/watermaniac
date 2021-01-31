@@ -21,41 +21,41 @@ TODO: Add option for peple actively doing Sports
 Sportowcy +500 ml
 */
   int suggestedAmount() {
-    int myAge = age != null ? age : 800;
+    int myAge = age != null ? age : 80;
 
     if (myAge < 1)
-      return 800;
+      return 80;
     else if (myAge < 3)
-      return 1300;
+      return 130;
     else if (myAge < 6)
-      return 1700;
+      return 170;
     else if (myAge < 9)
-      return 1900;
+      return 190;
     else if (myAge < 12) {
-      int female = 2100;
-      int male = 2400;
+      int female = 210;
+      int male = 240;
       if (gender == null) {
         return (female + male) ~/ 2;
       }
       return gender == Gender.male ? male : female;
     } else if (myAge < 15) {
-      int female = 2200;
-      int male = 3000;
+      int female = 220;
+      int male = 300;
       if (gender == null) {
         return (female + male) ~/ 2;
       }
       return gender == Gender.male ? male : female;
     } else if (myAge < 18) {
-      int female = 2300;
-      int male = 3300;
+      int female = 230;
+      int male = 330;
       if (gender == null) {
         return (female + male) ~/ 2;
       }
       return gender == Gender.male ? male : female;
     }
 
-    int female = 3000;
-    int male = 3500;
+    int female = 300;
+    int male = 350;
     if (gender == null) {
       return (female + male) ~/ 2;
     }
@@ -85,7 +85,7 @@ class _DailyGoalViewState extends State<DailyGoalView> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'DAILY GOAL',
+                'DAILY USAGE',
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17.0),
               ),
               Padding(
@@ -107,7 +107,7 @@ class _DailyGoalViewState extends State<DailyGoalView> {
               },
               value: _value.toDouble(),
               min: 0.0,
-              max: 10000.0,
+              max: 500.0,
               divisions: 100,
               onChangeEnd: (double value) {
                 widget.changed(value.toInt());

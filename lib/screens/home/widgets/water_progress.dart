@@ -85,7 +85,7 @@ class _WaterProgressState extends State<WaterProgress>
                               fontWeight: FontWeight.bold),
                         ),
                         ShadowText(
-                          '$current ml',
+                          '$current L',
                           shadowColor: Colors.black.withOpacity(0.3),
                           offsetX: 3.0,
                           offsetY: 3.0,
@@ -113,7 +113,7 @@ class _WaterProgressState extends State<WaterProgress>
                             fontWeight: FontWeight.w300),
                       ),
                       Text(
-                        '${(target - current < 0 ? 0 : target - current)} ml',
+                        '${(target - current < 0 ? 0 : target - current)} L',
                         style: TextStyle(
                             fontSize: 20.0, fontWeight: FontWeight.w600),
                       )
@@ -124,13 +124,13 @@ class _WaterProgressState extends State<WaterProgress>
                     child: Column(
                   children: <Widget>[
                     Text(
-                      'Target',
+                      'Ideal Usage Limit',
                       style: TextStyle(
                           color: const Color(0xFF363535),
                           fontWeight: FontWeight.w300),
                     ),
                     Text(
-                      '$target ml',
+                      '$target L',
                       style: TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.w600),
                     )

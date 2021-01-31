@@ -10,7 +10,7 @@
 
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="Watermaniac"
+        android:label="Internet of Water Things"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

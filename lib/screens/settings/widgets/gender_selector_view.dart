@@ -15,7 +15,7 @@ class GenderSelectorView extends StatefulWidget {
     return _GenderSelectorViewState(value);
   }
 }
-
+///male is commercial, female is residential
 class _GenderSelectorViewState extends State<GenderSelectorView> {
   Gender _selectedGender;
 
@@ -36,7 +36,7 @@ class _GenderSelectorViewState extends State<GenderSelectorView> {
       child: Column(
         children: <Widget>[
           Text(
-            'Gender'.toUpperCase(),
+            'Type of Building'.toUpperCase(),
             style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17.0),
           ),
           Row(
@@ -48,7 +48,7 @@ class _GenderSelectorViewState extends State<GenderSelectorView> {
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   icon: SvgPicture.asset(
-                    'assets/icons/male.svg',
+                    'assets/icons/commercial.svg',
                     height: 20.0,
                     width: 20.0,
                     color: _selectedGender == Gender.male
@@ -58,7 +58,7 @@ class _GenderSelectorViewState extends State<GenderSelectorView> {
                   onPressed: () {
                     _setGender(Gender.male);
                   },
-                  label: Text('Male'),
+                  label: Text('Commercial'),
                 ),
               ),
               Padding(
@@ -67,17 +67,17 @@ class _GenderSelectorViewState extends State<GenderSelectorView> {
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
                   icon: SvgPicture.asset(
-                    'assets/icons/female.svg',
+                    'assets/icons/home.svg',
                     height: 20.0,
                     width: 20.0,
                     color: _selectedGender == Gender.female
-                        ? const Color(0xFFf5bad3)
+                        ? const Color(0xFF6fa1ea)
                         : Colors.grey,
                   ),
                   onPressed: () {
                     _setGender(Gender.female);
                   },
-                  label: Text('Female'),
+                  label: Text('Residential'),
                 ),
               ),
             ],

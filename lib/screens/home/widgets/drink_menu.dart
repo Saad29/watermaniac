@@ -24,17 +24,17 @@ class DrinkMenu extends StatelessWidget {
         return AnchoredRadialMenu(
             menu: Menu(items: [
               RadialMenuItem(
-                  text: '200',
+                  text: '20',
                   onPressed: () {
                     callback(Drink.small());
                   }),
               RadialMenuItem(
-                  text: '250',
+                  text: '25',
                   onPressed: () {
                     callback(Drink.medium());
                   }),
               RadialMenuItem(
-                  text: '300',
+                  text: '30',
                   onPressed: () {
                     callback(Drink.big());
                   }),
