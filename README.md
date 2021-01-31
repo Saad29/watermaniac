@@ -1,9 +1,9 @@
 # IoT based Smart Water management demo app
 
-![Screenshot](/images/Capture.png)
-![Screenshot](/images/Capture1.png)
-![Screenshot](/images/Capture3.png)
-![Screenshot](/images/Capture4.png)
+![Screenshot](/images/Capture.jpg)
+![Screenshot](/images/Capture1.jpg)
+![Screenshot](/images/Capture3.jpg)
+![Screenshot](/images/Capture4.jpg)
 ![Screenshot](/images/iot.jpeg)
 
 IoT based water management app sample inspired by the water drinking app Watermaniac.
