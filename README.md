@@ -1,20 +1,16 @@
-# Watermaniac
+# IoT based Smart Water management demo app
 
-![Screenshot](/images/watermaniac.jpeg)
+![Screenshot](/images/Capture.png)
+![Screenshot](/images/Capture1.png)
+![Screenshot](/images/Capture3.png)
+![Screenshot](/images/Capture4.png)
+![Screenshot](/images/iot.jpeg)
 
-We may not think of it, but water can have a large impact on our overall and day-to-day health. As I’m sure you may know, it is important to hydrate regularly in order to preserve adequate mental and physical functions. Many of us do not pay attention to how much water we are drinking and how this can be affecting how we feel and what is happening inside of our bodies.
-
-Most of us ' do' drink water but... do you drink enough? Do you want to make sure you are doing your best to stay healthy? It is time to start tracking how much water you have drunk every day.
-
-Watermaniac is an app that will help you track the amount of water you drink.
+IoT based water management app sample inspired by the water drinking app Watermaniac.
 
 Features:
-- Set a daily goal of water
-- A history of all drink you took (and logged)
-- Customizable notifications to remind you about drinking
+- Set a daily goal of water usage
+- A history of all the water you used.
+- Sample IoT gauge meters
 
-It is simple, lightweight and built with Google Flutter. Only core functionalities.
-
-## Getting Started
-
-[✓] Flutter (Channel stable, v1.12.13+hotfix.5
+It is simple, lightweight and built with Flutter and Dart. Only core functionalities. The notifications for water leakage and the IoT connection specifics are dummy values.
